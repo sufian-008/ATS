@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATS - CV Job Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #D84315;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --sidebar-bg: rgba(0, 0, 0, 0.7);
+            --hover-color: #FF9800;
+            --light-bg: #F1F1F1;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #E1F5FE, #FFEBEE);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            left: 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .sidebar h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 20px 0;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--primary-dark);
+            color: #fff;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+        }
+
+        .navbar h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+         .main {
+      margin-left: 260px;
+      padding: 100px 40px 40px;
+      width: 100%;
+      background: var(--light-gray);
+    }
+
+    .report-box {
+      background: var(--white);
+      padding: 40px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      max-width: 700px;
+      margin: auto;
+      transition: all 0.3s ease-in-out;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .report-box h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+      color: var(--dark);
+    }
+
+    #report-content p {
+      font-size: 17px;
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    #report-content strong {
+      color: var(--primary-dark);
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background-color: var(--accent);
+      color: var(--orange);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+
+    .download-btn:hover {
+      background-color: #42a5f5;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 100px 20px;
+      }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>📑 AI Job Recommendation</h1>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <a href="/upload-cv">📥 Upload CV</a>
+        <a href="/view-report">📄 View Report</a>
+        <a href="/settings">⚙️ Settings</a>
+    </div>
+
+
+  <!-- Main -->
+  <div class="main">
+    <div class="report-box">
+      <h2>Your Job Recommendation Report</h2>
+      <div id="report-content">
+        <p><strong>Job Title:</strong> Software Developer</p>
+        <p><strong>Company:</strong> XYZ Corp.</p>
+        <p><strong>Location:</strong> New York</p>
+        <p><strong>Skills Required:</strong> Python, Machine Learning, AI</p>
+      </div>
+      <a href="/download" class="download-btn">📄 Download PDF Report</a>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ATS - CV Job Recommendation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #D84315;
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --sidebar-bg: rgba(0, 0, 0, 0.7);
+            --hover-color: #FF9800;
+            --light-bg: #F1F1F1;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #E1F5FE, #FFEBEE);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            left: 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .sidebar h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 20px 0;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--primary-dark);
+            color: #fff;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+        }
+
+        .navbar h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: 270px;
+            padding: 80px 40px;
+            flex: 1;
+            background: var(--light-bg);
+        }
+
+        .upload-box {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            max-width: 650px;
+            margin: auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeSlide 0.6s ease-in-out;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 16px;
+            display: block;
+            color: var(--primary);
+        }
+
+        input[type="file"] {
+            padding: 15px;
+            border: 2px dashed #ccc;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        input[type="file"]:hover {
+            border-color: var(--primary);
+        }
+
+        input[type="submit"], .download-btn {
+            margin-top: 25px;
+            padding: 15px 30px;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        input[type="submit"]:hover, .download-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .message {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: 500;
+            animation: fadeSlide 0.6s ease-in-out;
+        }
+
+        .result {
+            background-color: #E8F5E9;
+            border: 2px solid #4CAF50;
+            color: #388E3C;
+        }
+
+        .sorry-message {
+            background-color: #FFEBEE;
+            border: 2px solid #F44336;
+            color: #D32F2F;
+        }
+
+        .success-message {
+            background-color: #E3F2FD;
+            border: 2px solid #64B5F6;
+            color: #1976D2;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            .main {
+                margin-left: 0;
+                padding: 80px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>📑 AI Job Recommendation</h1>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <a href="/upload-cv">📥 Upload CV</a>
+        <a href="/view-report">📄 View Report</a>
+        <a href="/settings">⚙️ Settings</a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <div class="upload-box">
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <label for="cv">Upload Your CV (PDF Only):</label>
+                <input type="file" name="cv" id="cv" accept=".pdf" required>
+                <input type="submit" value="🔍 Get Recommendation">
+            </form>
+
+            {% if result %}
+            <div class="message result">
+                ✅ <strong>Recommended Job:</strong><br>{{ result }}
+            </div>
+            <a href="/download" class="download-btn">📄 Download PDF Report</a>
+            {% endif %}
+
+            {% if sorry_message %}
+            <div class="message sorry-message">
+                ⚠️ {{ sorry_message }}
+            </div>
+            {% endif %}
+
+            {% if success_message %}
+            <div class="message success-message">
+                {{ success_message }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
