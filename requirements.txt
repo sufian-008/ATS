@@ -1,0 +1,6 @@
+Flask==2.3.3
+numpy==1.26.4
+scikit-learn==1.4.2
+pandas==2.2.2
+PyMuPDF==1.23.9          # This is 'fitz' for PDF reading
+reportlab==4.1.0         # For generating PDFs
