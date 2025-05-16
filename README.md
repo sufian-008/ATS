@@ -3,6 +3,8 @@
 A smart job recommendation system that uses Machine Learning (Weka), Python, and Flask to suggest suitable jobs based on a user's uploaded CV (PDF). The system extracts keywords from the CV and matches them with a job dataset using clustering and similarity analysis.
 
 ---
+## Live Demo
+You can access the deployed app here: [https://ats-l3cf.onrender.com](https://ats-l3cf.onrender.com)
 
 ## 🚀 Features
 
